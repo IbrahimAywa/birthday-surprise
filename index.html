@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday My Princess ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 50% 20%,#40204d 0,#1b102b 42%,#090712 100%);color:#fff;display:flex;align-items:center;justify-content:center}
+.stars,.balloons{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.7;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.4)}}
+.balloon{position:absolute;width:44px;height:55px;border-radius:50% 50% 45% 45%;opacity:.9;animation:float 7s ease-in-out infinite}
+.balloon:after{content:"";position:absolute;width:1px;height:75px;background:#ffffff55;left:50%;top:52px}
+@keyframes float{50%{transform:translateY(-30px) rotate(4deg)}}
+.card{position:relative;width:min(92vw,620px);min-height:540px;padding:38px 25px 30px;border:1px solid #ffffff25;border-radius:30px;background:#ffffff0e;backdrop-filter:blur(16px);box-shadow:0 20px 80px #0008;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+h1{font-size:clamp(34px,8vw,64px);margin:5px 0 12px;background:linear-gradient(90deg,#ffd6e8,#fff,#ffd0dd);-webkit-background-clip:text;color:transparent}
+p{font-size:18px;line-height:1.7;color:#f6eaf1;max-width:500px}
+button{border:0;border-radius:999px;padding:15px 25px;font-size:16px;font-weight:700;color:#351326;background:#fff;cursor:pointer;box-shadow:0 8px 30px #ffb4d655;transition:.25s}
+button:hover{transform:translateY(-2px) scale(1.02)}
+.hidden{display:none!important}
+#cake{font-size:105px;filter:drop-shadow(0 15px 25px #0006);animation:bob 2.5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.candle{
+  font-size:34px;
+  margin-top:-10px;
+  cursor:pointer;
+  transition:transform .3s ease, opacity .5s ease;
+}
+.candle:hover{
+  transform: scale(1.15);
+}
+.message{font-size:20px}
+#photos{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:15px 0}
+.photo{width:120px;height:120px;border-radius:18px;object-fit:cover;box-shadow:0 8px 25px #0006}
+.note{font-size:14px;color:#e9cbd9;margin-top:20px}
+.confetti{position:fixed;width:9px;height:14px;top:-20px;z-index:5;animation:fall 4s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.small{font-size:14px;color:#dcbccc;margin-top:14px}
+#wishText{
+  opacity:0;
+  transform: translateY(8px);
+  transition:opacity  .8s ease, transform .8s ease;
+}
+#wishText.show{
+opacity:1;
+transform:translateY(0);
+}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="balloons" id="balloons"></div>
+
+<main class="card">
+  <section id="start">
+    <div style="font-size:62px">💌</div>
+    <h1> الاء حبيبتي ❤️</h1>
+    <p>عملت حاجه بسيطه مخصوص عشانك❤️ <br>جاهزة للمفاجئه؟</p>
+    <button onclick="openSurprise()">✨ افتحي مفاجئتك ✨</button>
+    <div class="small"> </div>
+  </section>
+
+  <section id="surprise" class="hidden">
+    <div id="cake">🎂</div>
+    <div class="candle" onclick="blowCandle()" title="Tap the candle">🕯️</div>
+    <p id="wishText" class="small"></p>
+    <h1>كل سنه وانتي طيبه يا اميرتي الحلوه ❤️</h1>
+    <p class="message">اتمنى تكون سنه حلوه زيك يا صغنن و مليانه اوقات سعيده و ابتسامات دافيه و كل حاجه ممكن تخلي قلبك فرحان لانك تستاهلي كل خير يا حبيبتي</p>
+    <button onclick="showMessage()">💌 حاجه كمان...</button>
+  </section>
+
+  <section id="message" class="hidden">
+    <div style="font-size:55px">❤️</div>
+    <h1>رسالتي ليكي</h1>
+    <p class="message">
+      اتمنى يكون يومك مميز زيك<br>
+      و كل حاجه بتتمنيها تتحق لانك تستحقي كل حاجه حلوه في الدنيا<br><br>
+      انا حقيقي ممتن لكل حاجه كانت سبب انك تكوني في حياتي <br>و عايزك تعرفي اني بحبك و هفضل احبك لاخر يوم في عمري❤️<br>
+      كل سنه و الملاك الي منور حياتي بخير و سعاده ❤️ <br>OSAMA.
+    </p>
+    <button onclick="finalSurprise()">🎁 في حاجه كمان...</button>
+    <div id="photos"></div>
+  </section>
+
+  <section id="final" class="hidden">
+    <div style="font-size:80px">🎁</div>
+    <h1>حاجه اخيره...</h1>
+    <p class="message">مفاجئه عيد ميلادك الحقيقيه مستنياكي ❤️</p>
+    <p class="small">انا شوفت الريبوست بتاعك على تيك توك و اشتريتها ليكي ❤️</p>
+  </section>
+</main>
+
+<script>
+const music = new Audio();
+music.loop = true;
+
+
+for(let i=0;i<70;i++){
+  const s=document.createElement('span'); s.className='star';
+  s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=Math.random()*2+'s'; document.getElementById('stars').appendChild(s);
+}
+const balloonColors=['#ff9fc5','#ffd37d','#9edcff','#c8a6ff','#a8f0cf'];
+for(let i=0;i<14;i++){
+  const b=document.createElement('span'); b.className='balloon';
+  b.style.left=Math.random()*95+'%'; b.style.bottom=(-20-Math.random()*100)+'px';
+  b.style.background=balloonColors[i%balloonColors.length];
+  b.style.animationDelay=Math.random()*5+'s';
+  document.getElementById('balloons').appendChild(b);
+}
+function openSurprise(){
+  document.getElementById('start').classList.add('hidden');
+  document.getElementById('surprise').classList.remove('hidden');
+  try{music.play()}catch(e){}
+  confetti();
+}
+function blowCandle(){
+
+  document.querySelector('.candle').textContent='✨';
+  const wish =
+  document .getElementById('wishText');
+  wish.textContent='اتمني امنيه✨❤️';
+  wish.classList.add('show');
+  confetti();
+}
+function showMessage(){
+  document.getElementById('surprise').classList.add('hidden');
+  document.getElementById('message').classList.remove('hidden');
+}
+function finalSurprise(){
+  document.getElementById('message').classList.add('hidden');
+  document.getElementById('final').classList.remove('hidden');
+  confetti();
+}
+function confetti(){
+  for(let i=0;i<80;i++){
+    const c=document.createElement('i'); c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDelay=Math.random()*1.2+'s';
+    c.style.transform=`rotate(${Math.random()*360}deg)`;
+    c.style.background=['#ffd166','#ff8fab','#a8dadc','#cdb4db','#ffffff'][i%5];
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+</script>
+</body>
+</html>
